@@ -23,7 +23,7 @@ import java.awt.image.BufferedImage;
 import com.xuggle.xuggler.IVideoPicture;
 
 /**
- * Dispatched by {@link com.xuggle.mediatool.IMediaListener#onVideoPicture(IVideoPictureEvent)}.
+ * 由{@link com.xuggle.mediatool.IMediaListener#onVideoPicture(IVideoPictureEvent)}分发.
  * @author aclarke
  *
  */
@@ -43,8 +43,8 @@ public interface IVideoPictureEvent extends IRawMediaEvent
   public abstract IVideoPicture getPicture();
 
   /**
-   * The buffered image, if available.  If null,
-   * you must use {@link #getPicture()}
+   * 缓存的图片，如果可用的话。如果为null，
+   * 你必须使用{@link #getPicture()}
    * @return the bufferedImage, or null if not available
    */
   public abstract BufferedImage getImage();

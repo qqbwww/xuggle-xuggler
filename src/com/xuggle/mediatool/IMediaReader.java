@@ -29,21 +29,19 @@ import com.xuggle.xuggler.IError;
 import com.xuggle.xuggler.IVideoPicture;
 
 /**
- * An {@link IMediaCoder} that reads and decodes media from an
- * {@link IContainer}.
+ * 一个{@link IMediaCoder}从一个{@link IContainer}读取和解码媒体。
+ * 
  * 
  * <p>
- * An {@link IMediaReader} opens up a media container,
- * reads packets from it, decodes the data, and then dispatches
- * information about the data to any registered
- * {@link IMediaListener} objects.  The main method of
- * interest is {@link #readPacket()}.
+ * {@link IMediaReader}打开一个media container，从中读取packets。
+ * 解码数据，然后分发数据信息到已注册的{@link IMediaListener}对象。
+ * 主要关注的方法是{@link #readPacket()}.
  * 
  * </p>
  * <p>
  * 
- * Here's an example of a very simple program that prints out
- * a line when the {@link IMediaReader} decides to open a container.
+ * 这里是一个很简单的程序的例子，当{@link IMediaReader}打开一个container
+ * 后打印一行
  * 
  *  </p>
  *  <pre>
@@ -59,8 +57,7 @@ import com.xuggle.xuggler.IVideoPicture;
  *  </pre>
  *  <p>
  *  
- *  And here's a slightly more involved example where we read
- *  a file and display it on screen in real-time:
+ *  这里有一个稍微有用一点的例子，我们读取文件并实时显示。
  *  
  *  </p>
  *  <pre>
@@ -82,26 +79,21 @@ public interface IMediaReader extends IMediaCoder
 {
 
   /**
-   * Set if the underlying media container supports adding dynamic streams. See
+   * 设置底层container支持动态流的开关。默认值为false。查看
    * {@link IContainer#open(String, IContainer.Type, IContainerFormat, boolean, boolean)}
-   * . The default value for this is false.
    * 
    * <p>
    * 
-   * If set to false, the {@link IMediaReader} can assume no new streams will be
-   * added after {@link #open()} has been called, and may decide to query the
-   * entire media file to find all meta data. If true then {@link IMediaReader}
-   * will not read ahead; instead it will only query meta data for a stream when
-   * a {@link #readPacket()} returns the first packet in a new stream. Note that
-   * a {@link IMediaWriter} can only initialize itself from a
-   * {@link IMediaReader} that has this parameter set to false.
+   * 如果设置为false,{@link IMediaReader}假设在{link #open()}调用之后，不会在添加新
+   * 流到后面，并且会搜索整个媒体文件查找元数据。如果为true，{@ IMediaReader}不会预读，
+   * 取而代之，它会在{@link #readPacket()}返回新流的第一个packet时搜寻流的元数据。注意
+   * {@link IMediaWriter}只能从一个这个值被置为false的{@link IMediaReader}初始化。
    * 
    * </p>
    * <p>
    * 
-   * To have an effect, the MediaReader must not have been created with an
-   * already open {@link IContainer}, and this method must be called before the
-   * first call to {@link #readPacket}.
+   * 要生效，MediaReader不应该由一个已经打开的{@link IContainer}创建，这个方法
+   * 必须在第一次调用{@link #readPacket()}之前调用。
    * 
    * </p>
    * 
@@ -126,13 +118,10 @@ public interface IMediaReader extends IMediaCoder
   public abstract boolean canAddDynamicStreams();
 
   /** 
-   * Set if the underlying media container will attempt to establish all
-   * meta data when the container is opened, which will potentially
-   * block until it has ready enough data to find all streams in a
-   * container.  If false, it will only block to read a minimal header
-   * for this container format.  See {@link IContainer#open(String,
-   * IContainer.Type, IContainerFormat, boolean, boolean)}.  The default
-   * value for this is true.
+   * 设置，是否底层媒体容器在容器打开时试图创建所有的元数据，潜在的这回阻塞知道它
+   * 准备好足够的数据以找到容器中的所有流。如果置为false，它只会阻塞在读取容器格式
+   * 的最小头文件部分。查看 See {@link IContainer#open(String, IContainer.Type, IContainerFormat, boolean, boolean)}.
+   * 默认值为true。
    *
    * <p>
    * 

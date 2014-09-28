@@ -63,29 +63,29 @@ import javax.sound.sampled.DataLine;
 public interface IMediaViewer extends IMediaListener
 {
   /**
-   * The mode you want to view media in.
+   * 你想要观看的媒体显示模式
    * @author aclarke
    *
    */
   public enum Mode
   {
-    /** Play audio & video streams in real-time. */
+    /** 实时播放音频和视频流 */
 
     AUDIO_VIDEO(true, true, true),
 
-    /** Play only audio streams, in real-time. */
+    /** 只播放音频流. */
 
     AUDIO_ONLY(true, false, true),
 
-    /** Play only video streams, in real-time. */
+    /** 只实时播放视频流 */
 
     VIDEO_ONLY(false, true, true),
 
-    /** Play only video, as fast as possible. */
+    /** 快速播放视频 */
 
     FAST_VIDEO_ONLY(false, true, false),
 
-    /** Play neither audio or video, also disables statistics. */
+    /** 不播放任何流，也不统计 */
 
     DISABLED(false, false, false);
 

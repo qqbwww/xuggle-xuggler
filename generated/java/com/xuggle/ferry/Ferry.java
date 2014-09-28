@@ -25,9 +25,9 @@ public class Ferry {
     FerryJNI.noop();
   }
   
-  /** call this to force a load of all native components.
-   * This is NOT normally required but can be useful in
-   * some circulstances.
+  /**
+   * 用于强制加载所有本地组件，这不是通用需求，但是在某些场景
+   * 下很有用
    */
   public static void load()
   {

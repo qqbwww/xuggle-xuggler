@@ -9,8 +9,8 @@
 package com.xuggle.ferry;
 
 /**
- * Internal only. Atomic Integer represents Integers than can be updated 
- *  
+ * 仅供内部使用，原子整数表示从原生代码原子修改的整数。
+ *
  * atomically from native code.  
  * <p>  
  * This object is NOT meant to be called from Java (in fact, that'd 
@@ -25,11 +25,10 @@ package com.xuggle.ferry;
  * And that said, this method is really only Atomic if running inside 
  * a  
  * Java JVM (or other virtual machine that can provide the functionality). 
- *  
- * If running in a standalone C++ program there  
- * is no current guarantee of Atomicity.  
- * </p><p>  
- * The object just forwards to the Java object:  
+ *
+ * 如果运行在一个标准的C++程序中，无法保证原子性
+ * </p><p>
+ * 这个对象仅仅指向Java对象
  * {@link java.util.concurrent.atomic.AtomicInteger}  
  * </p>  
  */

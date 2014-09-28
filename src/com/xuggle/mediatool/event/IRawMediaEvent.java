@@ -25,7 +25,7 @@ import com.xuggle.mediatool.IMediaListener;
 import com.xuggle.xuggler.IMediaData;
 
 /**
- * An {@link IEvent} that contains raw, decoded, media data.
+ * 一个包含原始，解码后的媒体数据的 {@link IEvent}.
  * 
  * @author aclarke
  *
@@ -34,18 +34,14 @@ public interface IRawMediaEvent extends IStreamEvent
 {
 
   /**
-   * The {@link IMediaData} for this object.
-   * May be null if {@link #getJavaData()}
-   * is not null.
+   * 这个对象的{@link IMediaData}。
+   * 如果{@link #getJavaData()}返回非null，则这个方法可能返回null。
    * <p>
-   * The returned {@link IMediaData} will only be valid for
-   * the duration of the {@link IMediaListener} method call
-   * it was dispatched on and 
-   * implementations must not access it after
-   * that call returns.  If you need to keep a copy of this data
-   * either copy the data into your own object, or
-   * use {@link IMediaData#copyReference()} to create a reference
-   * that will outlive your call.
+   * 返回的 {@link IMediaData}只有在{@link IMediaListener}方法
+   * 调用期间有效。事项不要在调用返回后访问它。
+   *  如果你需要持有这个数据的一个副本，可以复制数据到你自己
+   * 的对象，或者使用{@link IMediaData#copyReference()}来创建一个存活在
+   * 你调用生命周期外的引用。
    * </p>
    * 
    * @return the media data, or null if unavailable
@@ -53,22 +49,20 @@ public interface IRawMediaEvent extends IStreamEvent
   public abstract IMediaData getMediaData();
 
   /**
-   * The Java object registered with this event.  If null,
-   * you must use {@link #getMediaData()}.  Not all
-   * {@link IRawMediaEvent} support the ability to attach
-   * java data.
+   * 这个事件注册的Java对象，如果为null，你必须使用{@link #getMediaData()}.
+   * 不是所有的{@link IRawMediaEvent}都支持附加Java对象、
    * @return the object, or null if not available
    */
   public abstract Object getJavaData();
 
   /**
-   * The time stamp of this media, in {@link TimeUnit#MICROSECONDS}.
+   * 获取这个媒体的时间戳(微秒) {@link TimeUnit#MICROSECONDS}.
    * @return the timeStamp, or null if none.
    */
   public abstract Long getTimeStamp();
 
   /**
-   * Get the time stamp of this media in the specified units.
+   * 获取这个媒体的时间戳(按指定的时间单位).
    * @param unit the time unit
    * @return the time stamp, or null if none
    * @throws IllegalArgumentException if unit is null
@@ -76,7 +70,7 @@ public interface IRawMediaEvent extends IStreamEvent
   public abstract Long getTimeStamp(TimeUnit unit);
 
   /**
-   * The time unit of {@link #getTimeStamp()}.
+   * 时间单位 {@link #getTimeStamp()}.
    * @return the timeUnit
    */
   public abstract TimeUnit getTimeUnit();

@@ -9,9 +9,7 @@
 package com.xuggle.xuggler;
 import com.xuggle.ferry.*;
 /**
- * Converts {@link IVideoPicture} objects of a given width, height and 
- * format to a new  
- * width, height or format.  
+ * 将 {@link IVideoPicture}对象从一个给定宽度，高度和格式到另一个新宽度，高度或格式
  */
 public class IVideoResampler extends RefCounted implements com.xuggle.xuggler.IConfigurable {
   // JNIHelper.swg: Start generated code
@@ -26,6 +24,7 @@ public class IVideoResampler extends RefCounted implements com.xuggle.xuggler.IC
     IBuffer.make(null, 1);
   }
    
+  //本地视频对象指针
   private volatile long swigCPtr;
 
   /**
@@ -50,9 +49,10 @@ public class IVideoResampler extends RefCounted implements com.xuggle.xuggler.IC
   /**
    * Internal Only.  Not part of public API.
    *
+   * 获取代理的本地对象的原始值。
    * Get the raw value of the native object that obj is proxying for.
    *   
-   * @param obj The java proxy object for a native object.
+   * @param obj 代理本地对象的Java对象
    * @return The raw pointer obj is proxying for.
    */
   public static long getCPtr(IVideoResampler obj) {
@@ -73,8 +73,7 @@ public class IVideoResampler extends RefCounted implements com.xuggle.xuggler.IC
   }
   
   /**
-   * Create a new IVideoResampler object that is actually referring to the
-   * exact same underlying native object.
+   * 创建爱你一个新的IvdieoResampler对象，实际引用真正的原生对象。
    *
    * @return the new Java object.
    */
@@ -87,7 +86,7 @@ public class IVideoResampler extends RefCounted implements com.xuggle.xuggler.IC
   }
 
   /**
-   * Compares two values, returning true if the underlying objects in native code are the same object.
+   * 比较两个值，如果本地对象是同一个对象，则返回true
    *
    * That means you can have two different Java objects, but when you do a comparison, you'll find out
    * they are the EXACT same object.
@@ -102,7 +101,7 @@ public class IVideoResampler extends RefCounted implements com.xuggle.xuggler.IC
   }
   
   /**
-   * Get a hashable value for this object.
+   * 获取对象可以用于Hash的值。
    *
    * @return the hashable value.
    */
@@ -352,7 +351,8 @@ public class IVideoResampler extends RefCounted implements com.xuggle.xuggler.IC
   }
 
 /**
- * Returns true if the asked for feature is supported.  
+ * 如果支持传入特性返回ture
+ * 
  * @param	feature The feature you want to find out is supported.  
  * @return	true if the IVideoResampler supports this feature; false 
  *		 otherwise.  
@@ -368,9 +368,12 @@ public class IVideoResampler extends RefCounted implements com.xuggle.xuggler.IC
     return XugglerJNI.IVideoResampler_setProperty__SWIG_5(swigCPtr, this, IMetaData.getCPtr(valuesToSet), valuesToSet, IMetaData.getCPtr(valuesNotFound), valuesNotFound);
   }
 
+  /**
+   * 特性枚举类型
+   */
   public enum Feature {
   /**
-   * Features that the VideoResampler may optionally support.
+   * 可选的支持
    */
     FEATURE_IMAGERESCALING,
     FEATURE_COLORSPACECONVERSION;

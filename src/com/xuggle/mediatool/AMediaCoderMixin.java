@@ -24,9 +24,7 @@ package com.xuggle.mediatool;
 import com.xuggle.xuggler.IContainer;
 
 /**
- * An abstract implementation of all
- * {@link IMediaCoder} methods, but does not declare {@link IMediaCoder}.
- * 
+ * 所有{@link IMediaCoder}方法的一个抽象实现，仅仅是没有声明{@link IMediaCoder}
  * <p>
  * 
  * Mixin classes can be extended by anyone, but the extending class
@@ -41,22 +39,19 @@ import com.xuggle.xuggler.IContainer;
 
 public abstract class AMediaCoderMixin extends AMediaToolMixin
 {
-  // the container to read from or write to
-  
+  //读写用到的容器
   private final IContainer mContainer;
 
-  // true if this media writer should close the container
-
+  //媒体写应该关闭容器则置为true
   private boolean mCloseContainer;
 
-  // the URL which is read or written
-
+  //要读取或写入的URL
   private final String mUrl;
 
   // all the media reader listeners
 
   /**
-   * Construct an {@link AMediaCoderMixin}.
+   * 构造一个{@link AMediaCoderMixin}.
    *
    * @param url the URL which will be read or written to
    * @param container the container which be read from or written to
@@ -67,9 +62,7 @@ public abstract class AMediaCoderMixin extends AMediaToolMixin
     mUrl = url;
     mContainer = container.copyReference();
 
-    // it is assuemd that the container should not be closed by the
-    // tool, this may change if open() is laster called 
-
+    // 假设容器不应该被工具关闭，之后调用open()可能会修改这些行为
     setShouldCloseContainer(false);
   }
 
@@ -98,7 +91,7 @@ public abstract class AMediaCoderMixin extends AMediaToolMixin
   }
 
   /**
-   * Test if this {@link IMediaCoder} is open.
+   * 测试{@link IMediaCoder}是否已经打开
    * 
    * @return true if the media tool is open.
    */
@@ -109,8 +102,8 @@ public abstract class AMediaCoderMixin extends AMediaToolMixin
   }
 
   /**
-   * Should this {@link IMediaCoder} call {@link IContainer#close()}
-   * when {@link IMediaCoder#close()} is called.
+   * 设置{@link IMediaCoder}行为，当调用{@link IMediaCoder#close()}方法
+   * 时是否要调用{@link IContainer#close()}
    * @param value should we close the container
    */
   public void setShouldCloseContainer(boolean value)

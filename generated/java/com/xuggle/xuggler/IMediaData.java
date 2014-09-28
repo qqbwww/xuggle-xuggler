@@ -9,8 +9,7 @@
 package com.xuggle.xuggler;
 import com.xuggle.ferry.*;
 /**
- * The parent class of all media objects than can be gotten from an 
- * {@link IStream}.  
+ * 所有可以从{@link IStream}抽取的媒体文件的父类
  */
 public class IMediaData extends RefCounted {
   // JNIHelper.swg: Start generated code

@@ -9,19 +9,13 @@
 package com.xuggle.xuggler;
 import com.xuggle.ferry.*;
 /**
- * This class wraps represents a Rational number for the Xuggler.  
- * <p>  
- * Video formats often use rational numbers, and converting between 
- *  
- * them willy nilly can lead to rounding errors, and eventually, out 
- *  
- * of sync problems. Therefore we use IRational objects to pass  
- * around Rational Numbers and avoid conversion until the very last 
- * moment.  
+ * 这个类封装了表示一个Xuggler表示的有理数。
+ * <p> 
+ * 视频格式通常使用有理数，在它们之间转化可能导致舍入误差，设置同步问题。因此
+ * 我们使用Irational对象传递Rational数字并避免转换，除非有必要。
  * </p><p>  
- * Note: There are some static convenience methods  
- * in this class that start with s*. They start with s  
- * (as opposed to overloading methods (e.g. sAdd(...) vs. add(...)). 
+ * Note: 这个类中有有很多静态遍历方法以s开头（用于重载
+ * 方法）
  *  
  * </p>  
  */

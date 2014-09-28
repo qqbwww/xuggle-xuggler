@@ -22,11 +22,10 @@ package com.xuggle.mediatool;
 import java.util.Collection;
 
 /**
- * Generates events that {@link IMediaListener} objects can
- * subscribe to and react to.
+ * 生成 {@link IMediaListener}对象能订阅和响应的事件。
  * <p>
- * This is the interface that defines how you
- * {@link #addListener(IMediaListener)} s and
+ * 这个接口定义你如何添加监听器{@link #addListener(IMediaListener)}
+ * 移除监听器
  * {@link #removeListener(IMediaListener)}s from different
  * {@link IMediaGenerator} objects such as {@link IMediaReader}.
  * 

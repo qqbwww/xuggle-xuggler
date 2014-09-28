@@ -71,11 +71,10 @@ public interface IConverter
 
   public boolean willResample();
 
-  /** Converts a {@link BufferedImage} to an {@link IVideoPicture}.
+  /** 将一个{@link BufferedImage}转换为一个{@link IVideoPicture}.
    *
-   * @param image the source buffered image.
-   * @param timestamp the time stamp which should be attached to the the
-   *        video picture (in microseconds).
+   * @param image 源缓冲图片
+   * @param timestamp 需要添加到视频图片的时间戳(毫秒级单位).
    *
    * @throws IllegalArgumentException if the passed {@link
    *         BufferedImage} is NULL;

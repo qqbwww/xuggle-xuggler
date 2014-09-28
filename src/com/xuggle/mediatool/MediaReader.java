@@ -52,25 +52,19 @@ import com.xuggle.xuggler.video.IConverter;
 import com.xuggle.xuggler.video.ConverterFactory;
 
 /**
- * Opens a media container, and decodes all audio and video in the container.
+ * 打开一个媒体容器，解码所有音频和视频。
  *
  * <p>
  *
- * The MediaReader class is a simplified interface to the Xuggler
- * library that opens up an {@link IContainer} object, and then every
- * time you call {@link MediaReader#readPacket()}, attempts to decode
- * the packet and call any registered {@link IMediaListener} objects for
- * that packet.
+ * MediaReader类是Xuggler打开一个{@link IContainer}对象最简单的接口。然后要解码packet
+ * 调用 {@link MediaReader#readPacket()}并注册会用到的{@link IMediaListener}对象。
  *
  * </p><p>
- * 
- * The idea is to abstract away the more intricate details of the
- * Xuggler API, and let you concentrate on what you want -- the decoded
- * data.
+ *
+ * 这个概念是对Xuggler API复杂细节的抽象，为了让你关注需求--解码数据
  *
  * </p> 
  */
-
 class MediaReader extends AMediaCoderMixin implements IMediaReader
 {
   final private Logger log = LoggerFactory.getLogger(this.getClass());
@@ -138,24 +132,20 @@ class MediaReader extends AMediaCoderMixin implements IMediaReader
   }
 
   /**
-   * Create a MediaReader which reads and dispatches data from a media
-   * container. Calls to {@link #readPacket} will read stream content and
-   * dispatch it to attached listeners. If the end of the media stream is
-   * encountered, the MediaReader does NOT close the container, that is left to
-   * the calling context (you). {@link IStreamCoder}s opened by the MediaReader
-   * will be closed by the MediaReader, however {@link IStreamCoder}s opened
-   * outside the MediaReader will not be closed. In short MediaReader closes
-   * what it opens.
-   * 
+   * 创建一个MediaReader从给定URL指定的媒体容器读取和分发解码的媒体.调用{@link #readPacket}
+   * 读取流内容，分发内容到绑定的监听器。如果没有遇到media流的结尾，MediaReader不会关闭容器，需要
+   * 调用上下文处理（也就是你）。由MediaReader打开的{@link IStreamCoder}，也由MediaReader关闭。
+   * 然而，在MediaReader之外打开的{@link IStreamCoder}s不会关闭。简而言之，MediaReader只关闭它
+   * 自己打开的流。
    * <p>
    * 
-   * No {@link BufferedImage}s are created. To create {@link BufferedImage}s see
+   * 不会创建任何 {@link BufferedImage}s . 要创建{@link BufferedImage}s请看
    * {@link #MediaReader(IContainer, String)}.
    * 
    * </p>
    * 
    * @param container
-   *          on already open media container
+   *          已打开的媒体容器
    */
 
   MediaReader(IContainer container)

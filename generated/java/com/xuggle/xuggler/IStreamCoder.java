@@ -9,11 +9,8 @@
 package com.xuggle.xuggler;
 import com.xuggle.ferry.*;
 /**
- * The work horse of the Xuggler: Takes {@link IPacket} data from an 
- * {@link IContainer}  
- * (representing an {@link IStream}) and an {@link ICodec} and allows 
- * you to decode or encode  
- * that data.  
+ * Xuggler的主力：从{@link IContainer} 中获取{@link IPacket}数据（表示一个 {@link IStream}）
+ * 和一个用于编解码数据的{@link ICodec}
  */
 public class IStreamCoder extends RefCounted implements com.xuggle.xuggler.IConfigurable {
   // JNIHelper.swg: Start generated code
@@ -677,21 +674,16 @@ public class IStreamCoder extends RefCounted implements com.xuggle.xuggler.IConf
   }
 
 /**
- * Encode the given frame using this StreamCoder.  
- * The VideoPicture will allocate a buffer to use internally for this, 
- * and  
- * will free it when the frame destroys itself.  
- * Also, when done in order to flush the encoder, caller should call 
- *  
- * this method passing in 0 (null) for pFrame to tell the encoder  
- * to flush any data it was keeping a hold of.  
- * @param	pOutPacket [out] The packet to encode into. It will point 
- *		  
- * to a buffer allocated in the frame. Caller should check IPacket::isComplete() 
- *  
- * after call to find out if we had enough information to encode a full 
- * packet.  
- * @param	pFrame [in/out] The frame to encode  
+ * 使用这个StreamCoder编码指定的帧.VideoPicture会在内部分配一个缓冲。
+ * 当帧自我销毁时会释放缓冲。
+ * 并且，当完成后要刷新编码器，调用者应该调用这个方法传入0(null)，以通知编码器
+ * 刷新所有它持有的数据。
+ *
+ * @param	pOutPacket [out] 编码的目的地packet.它会指向帧内分配的一个缓冲。
+ *                      调用者应该在调用后检查IPacket::isComplete()，以找
+ *                      出我们是否有足够的信息可以编码一个完整的packet
+ *
+ * @param	pFrame [in/out] 用于编码的帧
  * @param	suggestedBufferSize The suggested buffer size to allocate 
  *		 or -1 for choose ourselves.  
  * If -1 we'll allocate a buffer exactly the same size (+1) as the decoded 

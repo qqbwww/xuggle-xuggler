@@ -9,12 +9,9 @@
 package com.xuggle.xuggler;
 import com.xuggle.ferry.*;
 /**
- * Information about how video data is formatted in an {@link IVideoPicture} 
- * object.  
- * This specifies the color space and how many bits pixel data takes. 
- * It also  
- * includes some utility methods for dealing with {@link Type#YUV420P} 
- * data; the  
+ * 关于视频数据在 {@link IVideoPicture}中如何格式化的信息。
+ * 指定颜色空间和位像素数据。
+ * 包括一些处理{@link Type#YUV420P}数据的实用方法。 the
  * most common type of encoding used in video files I've run across. 
  *  
  */

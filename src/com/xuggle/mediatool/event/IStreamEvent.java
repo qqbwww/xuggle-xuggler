@@ -20,8 +20,7 @@
 package com.xuggle.mediatool.event;
 
 /**
- * An {@link IEvent} that corresponds to a stream
- * in some container.
+ * 一个响应容器中流的{@link IEvent}
  * 
  * @author aclarke
  *
@@ -30,12 +29,11 @@ public interface IStreamEvent extends IEvent
 {
 
   /**
-   * Get the stream index.
-   * 
-   * The stream index can be null if the 
-   * {@link com.xuggle.mediatool.IMediaGenerator} that
-   * generated this event has no concept of streams.
-   * 
+   * 获取流索引
+   *
+   * 如果生成这个事件的{@link com.xuggle.mediatool.IMediaGenerator}
+   * 没有流的概念流索引可能为null
+   *
    * @return the stream index if known, or null if not
    */
   public abstract Integer getStreamIndex();

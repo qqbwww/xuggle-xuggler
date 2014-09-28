@@ -9,12 +9,9 @@
 package com.xuggle.xuggler;
 import com.xuggle.ferry.*;
 /**
- * A file (or network data source) that contains one or more {@link 
- * IStream}  
- * objects of  
- * audio and video data.  
+ * 包含一个或多个音视频数据{@link IStream}对象的文件(或者网络数据源)
  * <p>  
- * Typical usage for reading looks like this:  
+ * 读取的典型用法：
  * <pre>  
  * IContainer container = IContainer.make();  
  * if (container.open("myfile.flv", IContainer.Type.READ, null) <0) 
@@ -33,8 +30,7 @@ import com.xuggle.ferry.*;
  * container.close();  
  * </pre>  
  * <p>  
- * Typical usage for writing looks like this (makes an FLV file  
- * with one audio track encoded as mp3 data):  
+ * 典型的写数据方式如下（使用一个Mp3音源制作FLV文件)
  * </p>  
  * <pre>  
  * IContainer container = IContainer.make();  
@@ -823,10 +819,9 @@ public class IContainer extends RefCounted implements com.xuggle.xuggler.IConfig
   }
 
 /**
- * Writes the contents of the packet to the container, but make sure 
- * the  
- * packets are interleaved.  
- * <p>  
+ * 将packet的内容写到container中，保证packets隔行存储。
+ * <p>
+ *
  * This means the {@link IContainer} may have to queue up packets from 
  * one  
  * stream while waiting for packets from another.  
@@ -926,6 +921,7 @@ public class IContainer extends RefCounted implements com.xuggle.xuggler.IConfig
   }
 
 /**
+ * 获取容器最早的流的第一个packet中开始时间戳的毫秒表示
  * Get the starting timestamp in microseconds of the first packet of 
  * the earliest stream in this container.  
  * <p>  

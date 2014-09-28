@@ -9,26 +9,17 @@
 package com.xuggle.xuggler;
 import com.xuggle.ferry.*;
 /**
- * Represents a stream of similar data (eg video) in a {@link IContainer}. 
+ * 表示{@link IContainer}里的一个类似数据流（比如视频）
  *  
  * <p>  
- * Streams are really virtual concepts; {@link IContainer}s really just 
- * contain  
- * a bunch of {@link IPacket}s. But each {@link IPacket} usually has 
- * a stream  
- * id associated with it, and all {@link IPacket}s with that stream 
- * id represent  
- * the same type of (usually time-based) data. For example in many FLV 
- *  
- * video files, there is a stream with id "0" that contains all video 
- * data, and  
- * a stream with id "1" that contains all audio data.  
+ * 流是虚拟概念，事实上{@link IContainer}包含了一串的{@link IPacket}。
+ * 但是每一个{@link IPacket}通常有一个流ID与它关联，所有的 {@link IPacket}
+ * 表示相同类型的数据（通常基于时间），举例来说，在很多FLV视频文件中，一个与ID
+ * “0”相关的流包含所有视频数据，与“1”相关的包含所有音频数据。
  * </p><p>  
- * You use an {@link IStream} object to get properly configured {@link 
- * IStreamCoder}  
- * for decoding, and to tell {@link IStreamCoder}s how to encode {@link 
- * IPacket}s when  
- * decoding.  
+ * 你使用一个 {@link IStream}对象获取合适的已配置{@link 
+ * IStreamCoder}用于解码，并告知  {@link IStreamCoder}  {@link 
+ * IPacket}是如何编码的。
  * </p>  
  */
 public class IStream extends RefCounted {

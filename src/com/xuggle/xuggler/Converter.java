@@ -42,16 +42,12 @@ import com.xuggle.xuggler.IVideoResampler;
 import com.xuggle.xuggler.io.URLProtocolManager;
 
 /**
- * An example class that shows how to use the Xuggler library to open, decode,
- * re-sample, encode and write media files.
+ * 一个示例类，表明如何使用Xuggler库打开，解码，重新采样，编码和写媒体文件
  * 
  * <p>
  * 
- * This class is called by the {@link Xuggler} class to do all the heavy
- * lifting. It is meant as a Demonstration class and implements a small subset
- * of the functionality that the (much more full-featured) <code>ffmpeg</code>
- * command line tool implements. It is really meant to show people how the
- * Xuggler library is used from java.
+ * 这个类被{@link Xuggler}类调用，用于所有繁重的工作。这意味着，作为一个示例类，它实现了
+ * ffmpeg命令行工具的功能子集。它真正的用意是像人们展示如何在Java中使用Xuggler库
  * 
  * </p>
  * <p>
@@ -63,30 +59,25 @@ import com.xuggle.xuggler.io.URLProtocolManager;
  * </p>
  * <p>
  * 
- * <strong>It is not our intent to replicate all features in the
- * <code>ffmpeg</code> command line tool in this class.</strong>
+ * <strong>这个类的目的不是取代<code>ffmpeg</code>命令行工具中的所有特性</strong>
  * 
  * </p>
  * <p>
  * 
- * If you are just trying to convert pre-existing media files from one format to
- * another with a batch-processing program we strongly recommend you use the
- * <code>ffmpeg</code> command-line tool to do it. Look, here's even the <a
+ * 如果你只是想使用批处理程序将已经存在的媒体文件从一种格式转换为另一种格式，强烈推荐你使用
+ * <code>ffmpeg</code>命令行工具。 Look, here's even the <a
  * href="http://ffmpeg.org/ffmpeg-doc.html">documentation</a> for that program.
  * 
  * </p>
  * <p>
- * 
- * If on the other hand you need to programatically decide when and how you do
- * video processing, or process only parts of files, or do transcoding live
- * within a Java server without calling out to another process, then by all
- * means use Xuggler and use this class as an example of how to do conversion.
- * But please recognize you will likely need to implement code specific to your
- * application. <strong>This class is no substitute for actually understanding
- * the how to use the Xuggler API within your specific use-case</strong>
+ * 如果你需要以编程的方式决定何时以及如何做视频处理，或者只处理部分文件，或者使用一个java服务
+ * 在线转码而不另起进程的话，那么使用Xuggler，并使用这个类作为示例处理转换。
+ * 但是请注意，你可能需要针对你的应用实现特定代码。 <strong>这个类无法替代真正理解
+ * 在你的特定用例下如何使用Xuggler API。</strong>
  * 
  * </p>
  * <p>
+ * 
  * 
  * And if you haven't gotten the impression, please stop asking us to support
  * <code>ffmpeg</code> options like "-re" in this class. This class is only
@@ -100,8 +91,7 @@ import com.xuggle.xuggler.io.URLProtocolManager;
  * 
  * </p>
  * <p>
- * Now, all that said, here's how to create a main class that uses this
- * Converter class:
+ * 这里是一个如何使用这个Converter类的主main方法
  * </p>
  * 
  * <pre>
@@ -110,11 +100,11 @@ import com.xuggle.xuggler.io.URLProtocolManager;
  *   Converter converter = new Converter();
  *   try
  *   {
- *     // first define options
+ *     // 首先定义选项
  *     Options options = converter.defineOptions();
- *     // And then parse them.
+ *     // 然后解析它们
  *     CommandLine cmdLine = converter.parseOptions(options, args);
- *     // Finally, run the converter.
+ *     // 最后，运行转换
  *     converter.run(cmdLine);
  *   }
  *   catch (Exception exception)
@@ -140,11 +130,12 @@ public class Converter
   {
     // this forces the FFMPEG io library to be loaded which means we can bypass
     // FFMPEG's file io if needed
+    //强制加载FFMPEG io库，这意味着如果需要我们可以绕过FFMPEG文件IO
     URLProtocolManager.getManager();
   }
 
   /**
-   * Create a new Converter object.
+   * 创建一个新的Converter对象
    */
   public Converter()
   {
@@ -154,48 +145,46 @@ public class Converter
   private final Logger log = LoggerFactory.getLogger(this.getClass());
 
   /**
-   * A container we'll use to read data from.
+   * 一个用于读取的容器
    */
   private IContainer mIContainer = null;
   /**
-   * A container we'll use to write data from.
+   * 用于写的容器
    */
   private IContainer mOContainer = null;
 
   /**
-   * A set of {@link IStream} values for each stream in the input
-   * {@link IContainer}.
+   * 一组在输入{@link IContainer}里的{@link IStream} 值，一个
+   * 值代表一条Stream。
+   * 
    */
   private IStream[] mIStreams = null;
   /**
-   * A set of {@link IStreamCoder} objects we'll use to decode audio and video.
+   * 一组用于解码音视频的{@link IStreamCoder}对象。
    */
   private IStreamCoder[] mICoders = null;
 
   /**
-   * A set of {@link IStream} objects for each stream we'll output to the output
-   * {@link IContainer}.
+   * 一组用于输出到{@link IContainer}的 {@link IStream}对象
+   * .
    */
   private IStream[] mOStreams = null;
   /**
-   * A set of {@link IStreamCoder} objects we'll use to encode audio and video.
+   * 一组用于编码的{@link IStreamCoder}对象。
    */
   private IStreamCoder[] mOCoders = null;
 
   /**
-   * A set of {@link IVideoPicture} objects that we'll use to hold decoded video
-   * data.
+   * 一组用于持有解码视频数据的{@link IVideoPicture} 对象
    */
   private IVideoPicture[] mIVideoPictures = null;
   /**
-   * A set of {@link IVideoPicture} objects we'll use to hold
-   * potentially-resampled video data before we encode it.
+   * 一组{@link IVideoPicture}对象，用于持有重新采样编码前的视频数据
    */
   private IVideoPicture[] mOVideoPictures = null;
 
   /**
-   * A set of {@link IAudioSamples} objects we'll use to hold decoded audio
-   * data.
+   * 一组用于持有解码后音频数据的{@link IAudioSamples}对象。
    */
   private IAudioSamples[] mISamples = null;
   /**
@@ -238,8 +227,7 @@ public class Converter
   private Long mStartStreamTime;
 
   /**
-   * Define all the command line options this program can take.
-   * 
+   * 定义这个程序需要获取的所有命令行参数
    * @return The set of accepted options.
    */
   public Options defineOptions()

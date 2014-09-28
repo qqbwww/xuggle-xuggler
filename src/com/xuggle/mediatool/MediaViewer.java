@@ -201,8 +201,7 @@ class MediaViewer extends MediaListenerAdapter implements IMediaListener, IMedia
 
   private boolean mClosing = false;
     
-  // display mode
-
+  // 显示模式
   private Mode mMode;
 
   // default behavior of windows on close
@@ -240,9 +239,9 @@ class MediaViewer extends MediaListenerAdapter implements IMediaListener, IMedia
   }
 
   /**
-   * Construct a media viewer and optionally show media statistics.
+   * 构造一个媒体查看器，可选地显示媒体统计信息
    * 
-   * @param showStats display media statistics
+   * @param showStats 显示媒体统计信息
    */
 
   MediaViewer(boolean showStats)
@@ -279,14 +278,12 @@ class MediaViewer extends MediaListenerAdapter implements IMediaListener, IMedia
   }
 
   /**
-   * Construct a media viewer which plays in the specified mode, optionally
-   * shows media statistics and specifies the default frame close
-   * behavior.
-   * 
-   * @param mode the play mode of this viewer
+   * 够咋一个媒体查看器，以特定模式播放，可选地媒体统计信息，声明默认的frame关闭行为。
+   *
+   * @param mode 这个查看器的播放模式
    * @param showStats display media statistics
-   * @param defaultCloseOperation what should Swing do if the window is
-   *    closed. See the {@link javax.swing.WindowConstants}
+   * @param defaultCloseOperation 当窗口关闭时的Swing行为。
+   *    See the {@link javax.swing.WindowConstants}
    *    documentation for valid values.
    */
 

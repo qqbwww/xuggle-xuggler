@@ -9,35 +9,23 @@
 package com.xuggle.xuggler;
 import com.xuggle.ferry.*;
 /**
+ * 表示一个可以放置在{@link IContainer}里的已编码数据片段，
  * Represents an encoded piece of data that can be placed in an {@link 
  * IContainer}  
  * for a given {@link IStream} of data.  
- * <p>  
- * You read this object out of {@link IContainer} objects when decoding, 
- * and  
- * pass to an {@link IStreamCoder} object to decode.  
- * </p><p>  
- * You pass this object to a {@link IStreamCoder} to encode data, and 
- * then  
- *  
- * </p><p>  
- * Lastly, the units of timestamps in an {@link IPacket} are determined 
- * by the  
- * {@link IContainer} it came from (or is going to). For example, FLV 
- * {@link IPacket}s  
- * are always in milliseconds (1/1000 of a second). You cannot assume 
- * these  
- * timestamps are in any given timeunit without getting an {@link IStream} 
- * object  
- * and finding out what Time Base that stream operates in.  
- * </p><p>  
- * For convenience, the Xuggler API always uses Microseconds for raw 
- * data  
- * ({@link IVideoPicture} and {@link IAudioSamples} objects), and will 
- * convert to  
- * the right time stamp unit when decoding or encoding data (with an 
- * {@link IStreamCoder})  
- * from or to an {@link IContainer}.  
+ * <p>
+ * 你从解码时从{@link IContainer}对象中读取这个对象，然后把它传给一个 {@link IStreamCoder}
+ * 对象去解码。
+ * </p><p>
+ * 你传递这个对象给{@link IStreamCoder}去编码
+ *
+ * </p><p>
+ * 最后，{@link IPacket}中的时间戳单位由它所属的{@link IContainer}指明。
+ * 举例来说，FLV {@link IPacket}s 总是毫秒（千分之一秒）.你不获取一个{@link IStream}
+ * 对象并找出流操作的时间基就不能假设时间戳的事件单位。
+ * </p><p>
+ * 方便期间，Xuggler API总是使用为原始数据({@link IVideoPicture}和{@link IAudioSamples} objects)
+ * 使用微秒，会在编解码数据时（使用 {@link IStreamCoder}）转化为正确的时间戳单位。
  */
 public class IPacket extends IMediaData {
   // JNIHelper.swg: Start generated code

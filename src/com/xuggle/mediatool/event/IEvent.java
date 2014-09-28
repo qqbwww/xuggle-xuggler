@@ -22,7 +22,7 @@ package com.xuggle.mediatool.event;
 import com.xuggle.mediatool.IMediaGenerator;
 
 /**
- * The base class of all MediaTool events.
+ * 所有MediaTool事件的基类.
  * 
  * @author aclarke
  *
@@ -31,7 +31,7 @@ public interface IEvent
 {
 
   /**
-   * Get the source of this event.
+   * 获得事件元.
    * @return the source.
    */
   public abstract IMediaGenerator getSource();

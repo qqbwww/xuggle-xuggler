@@ -9,22 +9,19 @@
 package com.xuggle.ferry;
 
 /**
- * Parent of all Ferry objects -- it mains reference counts  
- * in native code.  
- * <p>  
- * RefCounted objects cannot be made with new. They must be  
- * constructed with special factory methods, usually called  
- * make(...).  
- * </p>  
- * <h2>Special note for developers in languages other than C++</h2> 
+ * 所有Ferry对象的父类--在原生代码中维护引用基础
+ * <p>
+ * RefCounted对象无法通过new创建，必须通过工厂方法构造，通常调用
+ * make(...)
+ * </p>
+ * <h2>给不使用C++语言的开发者的特别提示</h2>
  *  
- * <p>  
- * You should not need to worry about this class very much. Feel  
- * free to ignore it.  
- * </p>  
- * <h2>Special note for C++ Users</h2>  
- * <p>  
- * Users of RefCounted objects in Native (C++) code must make  
+ * <p>
+ *  你并不需要特别关心这个类，可以忽略它。
+ * </p>
+ * <h2>对于C++用户的特别说明</h2>
+ * <p>
+ * Users of RefCounted objects in Native (C++) code must make
  * sure they acquire() a reference to an object if they  
  * intend to keep using it after they have returned from  
  * the method it was passed to, and  
@@ -117,9 +114,9 @@ public class RefCounted {
   /**
    * Internal Only.  Not part of public API.
    *
-   * Get the raw value of the native object that obj is proxying for.
+   * 获取对象代理的本地对象的原生值
    *   
-   * @param obj The java proxy object for a native object.
+   * @param obj 原生对象的Java代理对象.
    * @return The raw pointer obj is proxying for.
    */
   public static long getCPtr(RefCounted obj) {

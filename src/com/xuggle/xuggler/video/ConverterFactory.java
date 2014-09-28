@@ -34,12 +34,9 @@ import com.xuggle.xuggler.IVideoPicture;
 import com.xuggle.xuggler.IVideoResampler;
 
 /**
- * This factory class creates {@link IConverter} objects for
- * translation between a
- * number of {@link IVideoPicture} and {@link BufferedImage} types.  Not
- * all image and picture types are supported.  When an unsupported
- * converter is requested, a descriptive {@link
- * UnsupportedOperationException} is thrown.
+ * 这个工厂类创建{@link IConverter}对象，用于在 {@link IVideoPicture}
+ * 和{@link BufferedImage} 类型之间的转换.并不是所有的图片类型都支持。当
+ * 当请求一个不支持的的转换，会抛出一个{@link UnsupportedOperationException}。
  * <p>  Each converter can
  * translate between any supported {@link com.xuggle.xuggler.IPixelFormat.Type}
  *  and a single {@link

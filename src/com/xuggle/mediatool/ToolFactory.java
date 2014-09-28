@@ -30,12 +30,10 @@ import com.xuggle.xuggler.IContainer;
 import com.xuggle.xuggler.ICodec;
 
 /**
- * <strong>Start Here --</strong> A Factory for MediaTools, and global
- * settings for the API.
+ * <strong>Start Here --</strong>一个用于MediaTools的工厂，API的全局设定
  * <p>
- * Here's an example of a {@link ToolFactory} program that opens up an input media
- * file, transcodes all the media to a new format, while playing the media on
- * your machine:
+ * 这里有一个{@link ToolFactory}程序打开和输入媒体文件的例子，在你的机器上播放媒体时转码所有媒体
+ * 到一种新的格式，
  * </p>
  * 
  * <pre>
@@ -64,11 +62,9 @@ public class ToolFactory
   /* IMediaReader Factories */
 
   /**
-   * Create an {@link IMediaReader} to reads and dispatches decoded media from a
-   * media container for a given source URL.
+   * 创建一个{@link IMediaReader}从给定URL指定的媒体容器读取和分发解码的媒体
    * 
-   * @param url the location of the media content, a file name will also work
-   *        here
+   * @param url 媒体内容的存放位置，也可以是一个文件名
    * @return An {@link IMediaReader}
    */
 
@@ -78,8 +74,7 @@ public class ToolFactory
   }
 
   /**
-   * Create an {@link IMediaReader} to reads and dispatches decoded media from a
-   * media container for a given source URL.
+   * 创建一个{@link IMediaReader}从给定URL指定的媒体容器读取和分发解码的媒体
    * 
    * <p>
    * 
@@ -171,9 +166,9 @@ public class ToolFactory
   }
 
   /**
-   * Construct a media viewer and optionally show media statistics.
-   * 
-   * @param showStats display media statistics
+   * 构造一个媒体查看器，可选地显示媒体统计信息
+   *
+   * @param showStats 是否显示媒体统计信息
    */
 
   public static IMediaViewer makeViewer(boolean showStats)
