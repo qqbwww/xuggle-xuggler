@@ -52,6 +52,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public abstract class AMediaGeneratorMixin
 {
 
+    /**
+     * 持有这个媒体生成器的所有监听器对象
+     */
   private final Collection<IMediaListener> mListeners = new CopyOnWriteArrayList<IMediaListener>();
 
   /**

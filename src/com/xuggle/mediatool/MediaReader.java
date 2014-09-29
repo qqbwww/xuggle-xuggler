@@ -70,15 +70,13 @@ class MediaReader extends AMediaCoderMixin implements IMediaReader
   final private Logger log = LoggerFactory.getLogger(this.getClass());
   { log.trace("<init>"); }
 
-  // a map between stream IDs and coders
-
-  private Map<Integer, IStreamCoder> mCoders = 
+  // 流ID和编解码器的映射Map
+  private Map<Integer, IStreamCoder> mCoders =
     new HashMap<Integer, IStreamCoder>();
   
   // a map between stream IDs and resamplers
 
-  // all the coders opened by this MediaReader which are candidates for
-  // closing
+  // 所有编解码器由这个MediaReader打开的解码器，后面需要被关闭。
 
   private final Collection<IStream> mOpenedStreams = new Vector<IStream>();
 

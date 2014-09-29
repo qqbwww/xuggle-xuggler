@@ -18,18 +18,13 @@
  *******************************************************************************/
 
 /**
- * A collection of classes that ferry objects from Java to native code and back,
- * and manage native memory.
+ * 一堆用于Java和原生代码ferry（转换？这货要怎么翻译啊），管理本地内存。
  * <p>
- * This package contains a variety of classes used by Xuggler to
- * manage communication between Java and and Native Code.
+ * 这个包含有一些供Xuggler用于滚里Java和原生代码通信的类。
  * </p>
  * <p>
- * Classes and methods marked &quot;Internal Only&quot; are not meant for usage
- * by anyone outside these libraries. They are public members only because they
- * need to be for other Xuggler packages to use them -- don't go calling methods
- * on these objects from outside Xuggler as you can quickly bring down the Java
- * virtual machine if you don't know what you're doing.
+ * 标记为Internal Only的类方法不要在这个库之外使用。它们是public的原因是为了供其他Xuggler包使用，
+ * 不要在Xuggler之外调用它们，那样很容易让JVM宕机。
  * </p>
  * <h2>Tuning Ferry (And Xuggler) Memory Management</h2>
  * 

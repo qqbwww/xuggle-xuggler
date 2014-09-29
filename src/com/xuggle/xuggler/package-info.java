@@ -18,28 +18,22 @@
  *******************************************************************************/
 
 /**
-    An advanced API for reading, decoding, re-sampling, encoding and writing
-    of most media files.
+    用于读取，解码，重新采样，编码和写大部分媒体文件的高级API。
     <p>
-    Xuggler is a library that wraps the
-    <a href="http://ffmpeg.org/">FFMPEG</a> C library with a slightly simpler interface designed
-    to be used safely from within Java (and eventually any garbage-collected.
-    language).
+    Xuggler是一个包装了<a href="http://ffmpeg.org/">FFMPEG</a>C库，提供轻量级简单接口以在
+    Java中使用的库（甚至任何其他垃圾收集语言）
     </p><p>
-    <h2>Goals</h2>
-    The library's goals are:
+    <h2>目标</h2>
+    这个母的目的是：
     <ul>
-    <li>Ease of Use: Provide the power of
-    <a href="http://ffmpeg.org/">FFMPEG</a> with an easier learning curve for Java developers.</li>
-    <li>Safety: Run natively inside a Java Virtual
-    Machine process, and minimize the odds of incorrect coding
-    of native <a href="http://ffmpeg.org/">FFMPEG</a> code causing crashes</li>
-    <li>Portability: Write portable code that should run most places
-    where <a href="http://ffmpeg.org/">FFMPEG</a> can run</li>
+    <li>易于使用：为Java开发者提供<a href="http://ffmpeg.org/">FFMPEG</a>简单的学习曲线.</li>
+    <li>安全:在JVM进程中运行，最小化原生 <a href="http://ffmpeg.org/">FFMPEG</a>编码的奇怪或不正确
+    编码引起的崩溃</li>
+    <li>可移植性:写可移植的代码，运行在任何<a href="http://ffmpeg.org/">FFMPEG</a>可以运行的环境</li>
     </ul>
-    <h2>Features</h2>
+    <h2>特性</h2>
     And so we set out to do that with this package.
-    As a result you'll find the following major features:
+    主要特性:
         <table>
          <tr>
            <th scope="col">Goal</th>
@@ -47,34 +41,29 @@
            <th scope="col">Description</th>
          </tr>
          <tr>
-           <td>Ease of Use</td>
-           <td>Simplied Interface</td>
-           <td>Xuggler introduces an object-oriented interface
-           that is based on the
-           <a href="http://cekirdek.pardus.org.tr/~ismail/ffmpeg-docs/">FFMPEG interfaces</a>,
-           but with more self-documenting methods and full
-           documentation.</td>
+           <td>简化使用</td>
+           <td>简单的接口</td>
+           <td>Xuggler引入面向对象的接口，基于
+           <a href="http://cekirdek.pardus.org.tr/~ismail/ffmpeg-docs/">FFMPEG 接口</a>,
+           但是更多自说明的方法和完整的文档支持。</td>
            </tr>
          <tr>
            <td>&nbsp;</td>
-           <td>Java Memory Management</td>
-           <td>Xuggler lets you pass objects to and from native code,
-           but removes
-        the need for you to worry about allocating and freeing memory.
-        Instead, we let the Java Virtual machine do that*.</td>
+           <td>Java内存管理</td>
+           <td>Xuggler允许你从原生代码获取对象或传递对象,但是消除了你关于分配和释放
+            内存的担忧。取而代之，我们让JVM做这些事。
          </tr>
          <tr>
            <td>&nbsp;</td>
-           <td>Allow <a href="http://ffmpeg.org/">FFMPEG</a> to read data from Java objects</td>
-           <td>Through the <code>com.xuggle.xuggler.io</code> package you can extend
-        Xuggler to read raw bytes to, and write raw bytes to, any Java object
-        you want. That way you can directly integrate with anything, be in
+           <td>允许<a href="http://ffmpeg.org/">FFMPEG</a>从Java对象读数据</td>
+           <td>通过<code>com.xuggle.xuggler.io</code>包，你可以继承Xuggler来读取原生字节或
+        写原生字节到任何Java对象。这种方式可以直接继承到
         <a href="http://red5.googlecode.com/">Red5</a>, Wowza, Adobe FMS... you name it.</td>
          </tr>
          <tr>
-           <td>Safety</td>
-           <td>Crash Protection</td>
-           <td>Our goal is to get to a stage where it is next to impossible
+           <td>安全</td>
+           <td>崩溃保护</td>
+           <td>我们的下一步目标是，让使用Xuggler的开发者引起JVM崩溃成为不可能，，Our goal is to get to a stage where it is next to impossible
         for a developer using Xuggler to crash the JVM through incorrect use
         of <a href="http://ffmpeg.org/">FFMPEG</a> native code. To that end, we do lots of error checking of
         calls to make sure you don't accidentally do something

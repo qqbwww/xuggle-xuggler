@@ -19,7 +19,7 @@
 
 /**
  * <p>
- * A simple API for to decoding, viewing and encoding media:  
+ * 一个简单的API用于解码，观看和编码一个媒体:
  * <a href="http://blog.xuggle.com/2009/06/05/introduction-to-xuggler-mediatools/">tutorial here</a>; start with
  * {@link com.xuggle.mediatool.ToolFactory}.
  * </p>
@@ -27,8 +27,7 @@
  * <h2>Examples</h2>
  * 
  * <p>
- * The following code snippet is all that is required to decode a FLV file and
- * encode it as a Quicktime file.
+ * 下面代码解码一个FLV文件，并编码到Quicktime文件。
  * </p>
  * 
  * <pre>
@@ -139,22 +138,18 @@
  * </p>
  * <p>
  * 
- * Mixin classes are similar to Adapter classes, but do not declare the
- * interfaces they implement formally. In this way they can be included
- * in-sub-classes without forcing the sub-class to declare they implement a
- * method. For example, the {@link com.xuggle.mediatool.AMediaToolMixin} class
- * can be useful to help implement {@link com.xuggle.mediatool.IMediaReader}
- * (and in fact, we use it for exactly that internally).
+ * Mixin类类似于Adapter类,但是没有声明它们要实现的接口。通过这种方式，这样它们可以被包含在
+ * 子类，却不需要强制子类声明它们实现的方法，举例来说， {@link com.xuggle.mediatool.AMediaToolMixin}
+ * 类可辅助实现 {@link com.xuggle.mediatool.IMediaReader}（事实上，我们在内部确实是
+ * 这样做的)。
  * 
  * </p>
  * 
- * <h2>How To Make a Media Pipeline</h2>
+ * <h2>如何构建一个Meida管道</h2>
  * 
  * <p>
- * Sometimes it can be useful to chain together a series of objects to filter
- * media and provide lots of effects. See the
- * {@link com.xuggle.mediatool.demos.ModifyAudioAndVideo} demo for an example of
- * that, but here's the basic structure of the code to make a pipeline:
+ * 有时候链接一系列对象过滤媒体并提供影响很有用，查看那{@link com.xuggle.mediatool.demos.ModifyAudioAndVideo}
+ * 示例，下面是构造管道的代码示例
  * </p>
  * 
  * <pre>
@@ -165,11 +160,11 @@
  * 
  * IMediaWriter writer = ToolFactory.makeWriter(outputFile.toString(), reader);
  * 
- * // create a tool which paints a time stamp onto the video
+ * // 创建一个工具，画时间戳到视频
  * 
  * IMediaTool addTimeStamp = new TimeStampTool();
  * 
- * // create a tool which reduces audio volume to 1/10th original
+ * // 创建一个工具，将音量降到十分之一
  * 
  * IMediaTool reduceVolume = new VolumeAdjustTool(0.1);
  * 
@@ -191,13 +186,12 @@
  *   ;
  * </pre>
  * 
- * <h2>Package Use Conventions</h2>
+ * <h2>包使用规则</h2>
  * 
  * <p>
- * 
- * When using this package you should be aware of the following code
- * conventions:
- * 
+ *
+ * 当使用这个包时，你应该知道这些代码规范
+ *
  * </p>
  * <ul>
  * <li>All interfaces begin with the letter &quot;I&quot;. For example:

@@ -30,18 +30,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Manages the native memory that Ferry objects allocate and destroy.
+ * 管理Ferry对象的分配与销毁，处理原生内存
  * <p>
- * Native memory isn't nicely garbage collected like Java memory is, and
- * managing it can be challenging to those not familiar with it. Ferry is all
- * about making native objects behave nicely in Java, and in order to have Ferry
- * make objects <i>look</i> like Java objects, the {@link JNIMemoryManager} does
- * some black magic to ensure native memory is released behind the scenes.
+ * 原生内存不会向Java内存那样有很好的垃圾收集，不熟悉它而要管理它很有难度。Ferry将原生
+ * 对象的行为在Java中尽量合适，为了让Ferry构建对象看起来更像是Java对象。{@link JNIMemoryManager}
+ * 使用一些黑魔法确保原生内存在底层释放。
  * </p>
  * <p>
- * To do this by default Ferry uses a Robust mechanism for ensuring native
- * memory is released, but that comes at the expense of some Speed. This
- * approach is tunable though.
+ * 默认Ferry使用Robust机制确保原生内存的释放，但这样会有速度的代价，这种方式可以调节。
  * </p>
  * <p>
  * if you run a Java Profiler and see your application is spending a lot of time
