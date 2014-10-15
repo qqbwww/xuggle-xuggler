@@ -65,20 +65,18 @@
            <td>崩溃保护</td>
            <td>我们的下一步目标是，让使用Xuggler的开发者引起JVM崩溃成为不可能，，Our goal is to get to a stage where it is next to impossible
         for a developer using Xuggler to crash the JVM through incorrect use
-        of <a href="http://ffmpeg.org/">FFMPEG</a> native code. To that end, we do lots of error checking of
+        of <a href="http://ffmpeg.org/">FFMPEG</a> native code. 为了实现这个，To that end, we do lots of error checking of
         calls to make sure you don't accidentally do something
         to make <a href="http://ffmpeg.org/">FFMPEG</a> mad.</td>
          </tr>
          <tr>
            <td>&nbsp;</td>
-           <td>Full Test Suite</td>
-           <td>We developed Xuggler with a Test-Driven methodology, so in
-        version one we come with over 200 different tests programs and
-        hundreds more assertions.</td>
+           <td>完整的测试套件</td>
+           <td>我们使用TDD方法开发Xuggler，第一版中我们有200个不同的测试程序和上百的断言.</td>
          </tr>
          <tr>
            <td>&nbsp;</td>
-           <td>Memory Leak and Error Testing</td>
+           <td>内存泄漏和错误测试</td>
            <td>We also developed Xuggler with a full fledged memory leaking
         framework (sorry, runs on Linux only).</td>
          </tr>
